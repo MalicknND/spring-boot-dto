@@ -1,6 +1,8 @@
 package com.nadhem.produits.restcontrollers;
 
 import java.util.List;
+
+import com.nadhem.produits.dto.ProduitDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,17 +21,17 @@ public class ProduitRESTController {
 	ProduitService produitService;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public List<Produit> getAllProduits() {
+	public List<ProduitDTO> getAllProduits() {
 		return produitService.getAllProduits();
 	 } 		
 	
 	@RequestMapping(value="/{id}",method = RequestMethod.GET)
-	public Produit getProduitById(@PathVariable("id") Long id) {	
+	public ProduitDTO getProduitById(@PathVariable("id") Long id) {
 		return produitService.getProduit(id);
     }
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public Produit createProduit(@RequestBody Produit produit) {
+	public ProduitDTO createProduit(@RequestBody Produit produit) {
 		return produitService.saveProduit(produit);
 	}
 

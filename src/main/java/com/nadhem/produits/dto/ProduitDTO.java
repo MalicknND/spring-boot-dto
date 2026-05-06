@@ -15,7 +15,8 @@ import java.util.Date;
 public class ProduitDTO {
     private Long idProduit;
     private String nomProduit;
-    private Double prixProduit;
+//    private Double prixProduit;
     private Date dateCreation;
-    private Categorie categorie;
+//    private Categorie categorie;
+    private String nomCat;
 }

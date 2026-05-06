@@ -108,8 +108,11 @@ public class ProduitServiceImpl implements ProduitService {
 
         return ProduitDTO.builder().idProduit(p.getIdProduit())
                 .nomProduit(p.getNomProduit())
-                .prixProduit(p.getPrixProduit())
-                .categorie(p.getCategorie()).build();
+//                .prixProduit(p.getPrixProduit())
+                .dateCreation(p.getDateCreation())
+//                .categorie(p.getCategorie())
+                .nomCat(p.getCategorie().getNomCat())
+                .build();
 
     }
 

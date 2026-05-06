@@ -2,6 +2,7 @@ package com.nadhem.produits.service;
 
 import java.util.List;
 
+import com.nadhem.produits.dto.ProduitDTO;
 import com.nadhem.produits.entities.Categorie;
 import com.nadhem.produits.entities.Produit;
 
@@ -21,5 +22,7 @@ public interface ProduitService {
 	 List<Produit> findByCategorieIdCat(Long id);
 	 List<Produit> findByOrderByNomProduitAsc();
 	 List<Produit> trierProduitsNomsPrix();
+
+	 ProduitDTO convertEntityToDto(Produit p);
 
 }

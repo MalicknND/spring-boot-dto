@@ -31,12 +31,12 @@ public class ProduitRESTController {
     }
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public ProduitDTO createProduit(@RequestBody Produit produit) {
+	public ProduitDTO createProduit(@RequestBody ProduitDTO produit) {
 		return produitService.saveProduit(produit);
 	}
 
 	@RequestMapping(method = RequestMethod.PUT)
-	public Produit updateProduit(@RequestBody Produit produit) {
+	public ProduitDTO updateProduit(@RequestBody ProduitDTO produit) {
 		return produitService.updateProduit(produit);
 	}
 

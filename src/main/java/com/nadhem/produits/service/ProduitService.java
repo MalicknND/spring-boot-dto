@@ -8,14 +8,14 @@ import com.nadhem.produits.entities.Produit;
 
 public interface ProduitService {
 
-    ProduitDTO saveProduit(Produit p);
+    ProduitDTO saveProduit(ProduitDTO p);
 
     ProduitDTO getProduit(Long id);
 
     List<ProduitDTO> getAllProduits();
 
 
-    Produit updateProduit(Produit p);
+    ProduitDTO updateProduit(ProduitDTO p);
 
     void deleteProduit(Produit p);
 
@@ -36,5 +36,7 @@ public interface ProduitService {
     List<Produit> trierProduitsNomsPrix();
 
     ProduitDTO convertEntityToDto(Produit p);
+
+    Produit convertDtoToEntity(ProduitDTO dto);
 
 }

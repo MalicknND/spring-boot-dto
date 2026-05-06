@@ -1,6 +1,7 @@
 package com.nadhem.produits.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.nadhem.produits.dto.ProduitDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,8 @@ public class ProduitServiceImpl implements ProduitService {
     ProduitRepository produitRepository;
 
     @Override
-    public Produit saveProduit(Produit p) {
-        return produitRepository.save(p);
+    public ProduitDTO saveProduit(Produit p) {
+        return convertEntityToDto(produitRepository.save(p));
 
     }
 
@@ -41,14 +42,24 @@ public class ProduitServiceImpl implements ProduitService {
     }
 
     @Override
-    public Produit getProduit(Long id) {
-        return produitRepository.findById(id).get();
+    public ProduitDTO getProduit(Long id) {
+        return convertEntityToDto(produitRepository.findById(id).get());
 
     }
 
     @Override
-    public List<Produit> getAllProduits() {
-        return produitRepository.findAll();
+    public List<ProduitDTO> getAllProduits() {
+        return produitRepository.findAll()
+                .stream()
+                .map(this::convertEntityToDto)
+                .collect(Collectors.toList());
+
+        //OU BIEN
+                /*List<Produit> prods = produitRepository.findAll();
+                  List<ProduitDTO> listprodDto = new ArrayList<>(prods.size());
+                    for (Produit p : prods)
+                        listprodDto.add(convertEntityToDto(p));
+                    return listprodDto;*/
     }
 
     @Override
